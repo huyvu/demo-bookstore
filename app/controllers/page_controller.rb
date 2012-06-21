@@ -1,7 +1,7 @@
 class PageController < ApplicationController
   skip_before_filter :authorize
   def home
-    @books = Book.paginate :page =>params[:page], :order =>'created_at desc', :per_page => 2
+    @books = Book.paginate :page =>params[:page], :order =>'created_at desc', :per_page => 4
 
   end
 
