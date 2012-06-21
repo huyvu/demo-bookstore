@@ -1,0 +1,30 @@
+
+
+
+<div id="item">
+	<ul>
+		<% @cat.books.each do |book| %>
+
+			<li>
+				<%= link_to image_tag("book2.jpg", :alt => "book2", :size => "140x207"), book_path(book), :class => "item_img"%>
+				
+				<h5>
+					<%=link_to "#{book.title}",book_path(book), :class => "item_link" %></a>			
+				</h5>
+
+				<span class="price">
+					<%= number_to_currency(book.price, :unit => " ", :precision => 0)%> vnd
+				</span>
+
+				<%= button_to 'Add to Cart', line_items_path(:book_id => book), :class => "add_to_cart"%>
+			</li>
+		<% end%>
+
+		<% if session[:user_id] %>
+		<li>
+			<%= link_to 'Edit', edit_cat_path(@cat) %> |
+			<%= link_to 'Back', cats_path %>
+		</li>
+		<% end %>
+	</ul>
+</div>

@@ -1,0 +1,15 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type="submit"].btn_cart{
+	background:url(btn_cart.gif) repeat-x;
+	width:100px;
+	height:43px;
+	line-height:43px;
+	color:white;
+	font:bold 15px Helvetica;
+	border:none;
+	margin-top:20px;
+	cursor:pointer;
+}

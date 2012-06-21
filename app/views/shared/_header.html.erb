@@ -1,0 +1,48 @@
+		<div id="header">
+			<div id="top_nav">
+				<ul>
+					<li><%= current_link_to "HOME", home_path%></li>
+					<% if session[:user_id] %>
+						<li>
+							<!--<%= link_to "BOOKS" , books_path%>-->
+							<%= current_link_to "BOOKS", books_path %>
+						</li>
+						<li><%= current_link_to "CATEGORIES" , cats_path%></li>
+						<li><%= current_link_to "ORDERS" , orders_path%></li>
+						
+						<div id="account_nav">
+							<ul>
+								<li>Helllo 
+
+									<strong>
+										<%= link_to "#{User.find(session[:user_id]).name}", admin_url %>
+									</strong>
+
+								</li>
+								<li><%= link_to "Log out", logout_path, :method => :delete %></li>
+							</ul>
+						</div>
+						<!-- end user account navigation -->
+					<% else %>
+						<li><%= current_link_to "ABOUT" , about_path%></li>
+						<li><%= current_link_to "CONTACT" , contact_path%></li>
+						<li><%= current_link_to "HELP" , help_path%></li>
+					<% end %>
+				</ul>
+			</div>
+			<!-- end top navigation -->
+					
+			<div id="cart_count">
+				<% unless session[:cart_id].nil? %>
+					<h2>
+						<%= link_to "#{Cart.find(session[:cart_id]).line_items.count}", cart_path(session[:cart_id]) %>
+					</h2>
+				<% else %>
+				<h2>0</h2>
+				<% end %>
+
+			</div>
+			<!-- end of cart count -->
+
+		</div>
+		<!-- end header -->

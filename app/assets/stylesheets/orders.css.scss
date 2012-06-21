@@ -1,0 +1,103 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#oder_detail{
+	padding:10px;
+}
+
+
+#order_detail table{
+	border-collapse:collapse;
+	margin-top:30px;
+}
+
+
+.order_form textarea{
+	outline:none;
+	border-radius:10px;
+	border:2px solid #b7b7b7;
+	padding: 8px 0 8px 8px;
+	width:300px;
+	font: bold 16px Helvetica,Arial;
+	color:#555;
+}
+.order_form textarea:focus{
+	box-shadow: 0 0 10px #5bc8c9;
+	-moz-box-shadow:0 0 10px #5bc8c9;
+	-webkit-box-shadow:0 0 10px #5bc8c9;
+	outline:none;
+}
+.order_form .field_with_errors textarea{
+	border:2px solid #D8000C;
+	outline:none;
+}
+
+
+/*-------------------------LOGIN-----------------------------*/
+.order_form{
+	width:500px;
+	margin:0 auto;
+}
+
+.order_form div{
+	margin-top:20px;
+}
+.order_form legend{
+	margin-left:30px;
+	color:#2C8A73;
+	padding:3px;
+	font: bold 18px Helvetica;
+}
+.order_form fieldset{
+	border:1px dashed #666;
+	padding:10px;
+}
+
+.order_form label{
+	float:left;
+	width:120px;
+	margin-right:30px;
+	margin-top:25px;
+	color:#555;
+	text-align:right;
+	font: bold 14px Helvetica,Arial;
+}
+
+.order_form input{
+	width:240px;
+	height:35px;
+	border-radius:10px;
+	border:2px solid #b7b7b7;
+	padding-left: 8px;
+	font-size:16px;
+	font: bold 16px Helvetica,Arial;
+	color:#555;
+}
+.order_form input:focus{
+	box-shadow: 0 0 10px #5bc8c9;
+	-moz-box-shadow:0 0 10px #5bc8c9;
+	-webkit-box-shadow:0 0 10px #5bc8c9;
+	outline:none;
+}
+.order_form input[type="submit"]{
+	width:180px;
+	height:50px;
+	color:white;
+	font-size:20px;
+	border:none;
+	margin:10px 0 10px 150px;
+}
+.order_form input[type="submit"]:hover{
+	background:#77efd1;
+}
+.order_form div.field_with_errors label{
+	margin-top:45px;
+}
+.order_contact{
+	width:500px;
+	margin:10px auto;
+}
+.order_contact table{
+	border:none;
+}

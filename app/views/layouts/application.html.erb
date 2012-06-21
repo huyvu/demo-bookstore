@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Demo online bookstore</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "ckeditor/init" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+		<%= render "shared/header" %>
+
+		<%= render "shared/banner" %>
+
+	<div id="container">
+		
+		<div id="content">
+			<%= render "shared/sidebar" %>
+
+			<div id="main">
+				<%= yield %>
+			</div>
+			<!-- end of #main -->
+		</div>
+		<!-- end content -->
+	</div>
+	<!-- end of #container -->
+		
+	<%= render "shared/footer" %>
+</body>
+</html>

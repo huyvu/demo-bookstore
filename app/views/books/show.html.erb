@@ -1,0 +1,36 @@
+
+<% if notice %>
+    <p id="notice" class="success" ><%= notice %></p>
+<% end %>-->
+
+<div style="float:left;width:700px">
+	<p>
+		<div style="float:left; margin-right:50px;margin-bottom:20px"> 
+		<%= image_tag("#{@book.img_url}", :title => @book.title, :alt => @book.title)%>
+		</div>
+	  <b><%= @book.title %></b>
+	</p>
+	<p>
+		Author : 	
+	  <%= @book.author %>
+	</p>
+
+	<p>
+		Price : 
+	  <%= number_to_currency(@book.price, :unit => " ", :precision => 0)%> 
+	</p>
+	<p>
+		<%= button_to "Add to cart", line_items_path(:book_id => @book.id),:class => "btn_cart" %>
+		
+	</p>
+</div>
+
+<p>
+  <%= simple_format(@book.description) %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

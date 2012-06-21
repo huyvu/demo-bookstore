@@ -1,0 +1,68 @@
+<div id="sidebar">
+	<h4>CATEGORIES</h4>
+
+	<ul class="cat_list">
+		<% Cat.all.each do |cat|%>
+			<li><%= current_link_to "#{cat.name}", cat_path(cat)%></li>
+		<% end%>
+	</ul>
+
+
+
+	<div id="my_cart">
+		<span class="title">My Cart</span>
+
+		<div class="cart_content">
+			<% if session[:cart_id].nil? %>
+
+				<p>
+					There is <strong>no items</strong>
+					in your cart.
+				</p>
+
+			<% else%>
+				<% cart = Cart.find(session[:cart_id]) %>
+
+				<p>
+					There is <strong><%= cart.line_items.count %> items</strong>
+					in your shopping cart.
+				</p>
+
+				<p>
+					<strong>
+						Cart Subtotal : <%= number_to_currency("#{cart.total_price}",:unit => " ", :precision => 0)%>
+					</strong>
+				</p>
+
+
+		<!-- -----------------------------------END OF SUMMARY-------------------------------------------- -->
+
+			<ul class="mini_list">
+				<% cart.line_items.each do |item|%>
+					<li>
+						<%= link_to (image_tag("#{item.book.img_url}", :size => "60x60")),book_path(item.book.id) %>
+
+						<div class="book_details">
+							<%= link_to "a",item, :method => :delete, :class => "btn_remove" ,:title => "delete this" %>
+							<p><%= link_to "#{item.book.title}", book_path(item.book.id) %></p>
+							<strong><%= item.quantity %> x <%= number_to_currency("#{item.book.price}",:unit => " ", :precision => 0)%>
+							</strong>
+						</div>
+						<!-- end of book_details -->
+					</li>
+				<% end%>
+			</ul>
+			
+			<% end %>
+		</div>
+		<!-- end of cart_content -->
+	</div>
+	<!-- end of #mycart -->
+
+	<div class="ads">
+		<%= image_tag("banner1.png") %>
+	</div>
+</div>
+<!-- end of #sidebar category navigation -->
+
+

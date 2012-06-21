@@ -1,0 +1,74 @@
+
+<div id="order_detail">
+  <% if notice %>
+    <p id="notice" class="success" ><%= notice %></p>
+  <% end %>
+<table class="order_contact" border="0">
+  <tr>
+    <td><b>First name:</b></td>
+    <td><%= @order.first_name %></td>
+  </tr>
+
+  <tr>
+    <td><b>Last name:</b></td>
+    <td><%= @order.last_name %></td>
+  </tr>
+
+  <tr>
+    <td><b>Email:</b></td>
+    <td><%= @order.email %></td>
+  </tr>
+
+  <tr>
+    <td><b>Address:</b></td>
+    <td><%= @order.address %></td>
+  </tr>
+
+  <tr>
+    <td><b>Phone:</b></td>
+    <td><%= @order.phone %></td>
+  </tr>
+</table>
+<table>
+            <tr>              
+              <th width="100"></th>
+              <th width="250">Title</th>
+              <th width="50">Quantity</th>
+              <th width="100">Price</th>
+              <th width="100">Subtotal</th>
+            </tr>
+            <% @order.line_items.each do |item|%>
+              <tr>
+                <td><%= image_tag("#{item.book.img_url}", :size => "70x90")%></td>
+                <td><%= item.book.title %></td>
+
+                <td align="center">
+                  <%= item.quantity %>
+                </td>
+
+                <td align="right"><%= number_to_currency(item.book.price,:unit => " ", :precision => 0) %>
+                </td>
+
+                <td>
+                  <%= number_to_currency("#{item.total_price}",:unit => " ", :precision => 0) %>
+                </td>
+
+
+
+              </tr>
+            <% end%>
+            
+
+            <tr style="color:#e52f36">
+              <td colspan="3" ><center><b>Total<b></center></td>
+              <td colspan="2"><b><%= number_to_currency("#{@order.total_price}",:unit => " ", :precision => 0) %></b></td>
+            </tr>
+
+            </tr>
+          </table>
+
+<% if session[:user_id] %>
+  <%= link_to 'Edit', edit_order_path(@order) %> |
+  <%= link_to 'Back', orders_path %>
+<% end %>
+</div>
