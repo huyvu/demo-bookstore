@@ -12,26 +12,22 @@
 				<!-- <form action="" method="post"> -->
 					<table border="1">
 						<tr>
-							<th width="350">Name</th>
-							<th width="180">Quantity</th>
-							<th width="150">Price</th>
-							<th width="100">Subtotal</th>
-							<th width="35">&nbsp;&nbsp;&nbsp;&nbsp;</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Price</th>
+							<th>Subtotal</th>
+							<th>&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						</tr>
 						<% @cart.line_items.each do |item|%>
 							<tr>
-								<td><%= item.book.title %></td>
+								<td width="250"><%= item.book.title %></td>
 								<%= hidden_field_tag 'line_item_id', "#{item.id}"%>
 
 								<%= form_for item, :url => line_item_path(item), :method => :put do |f| %>
 
-									<td>
+									<td width="110">
 										
-										<% if flash[:alert] %>
-											<%= f.text_field :quantity, :value => "#{item.quantity}", :size => 1,:class => "item_quantity field_with_errors" %>
-										<% else %>
-											<%= f.text_field :quantity, :value => "#{item.quantity}", :size => 1,:class => "item_quantity" %>
-										<% end %>
+										<%= f.text_field :quantity, :value => "#{item.quantity}", :size => 1,:class => "item_quantity" %>
 										<%= f.submit 'update', :class => "update_btn"%>
 
 										
