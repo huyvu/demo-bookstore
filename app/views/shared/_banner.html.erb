@@ -6,6 +6,18 @@
 
 				</div>
 				<!-- end logo image -->
+				<% if current_page?(home_path) ||  current_page?(books_path) %>
+					<div id="search">
+
+						<%= form_tag books_path, :method => 'get', :id => "books_search", :class => "form-wrapper" do %>
+						<p>
+							<%= text_field_tag :search, params[:search], :placeholder => "Enter search here..." %>
+							<%= submit_tag "search" %>
+						</p>
+							<!-- <div id="books"></div> -->
+						<% end %>
+					</div>
+				<% end %>
 
 
 			</div>

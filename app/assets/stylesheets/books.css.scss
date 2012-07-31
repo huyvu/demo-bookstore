@@ -13,3 +13,105 @@ input[type="submit"].btn_cart{
 	margin-top:20px;
 	cursor:pointer;
 }
+
+/* Form wrapper styling */
+.form-wrapper {
+    width: 420px;
+    padding: 7px;
+    margin-top:100px;
+    float:right;
+    background: #444;
+    background: rgba(0,0,0,.2);
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+}
+ 
+/* Search Form  style*/
+ 
+.form-wrapper input[type="text"] {
+    width: 330px;
+    height: 30px;
+    padding: 5px 15px;
+    float: left;   
+    font: bold 17px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border: 0;
+    background: #FAFAF6;
+    border-radius: 5px 0 0 5px;     
+}
+ 
+.form-wrapper input[type="text"]:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+}
+ 
+.form-wrapper input[type="text"]::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+   font-style: italic;
+}
+ 
+.form-wrapper input[type="text"]:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}
+ 
+.form-wrapper input[type="text"] :-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+}   
+ 
+/* Form submit button */
+.form-wrapper input[type="submit"] {
+    overflow: visible;
+    position: relative;
+    float: right;
+    border: 0;
+    padding-bottom: 10px;
+    text-align:center;
+    cursor: pointer;
+    height: 30px;
+    width: 85px;
+    font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: #fff;
+    text-transform: uppercase;
+    background: #60bda6;
+    border-radius: 0 5px 5px 0;     
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}  
+   
+.form-wrapper input[type="submit"] :hover{    
+    background: red;
+}  
+   
+// .form-wrapper input[type="submit"] :active,
+// .form-wrapper input[type="submit"] :focus{  
+//     background: #c42f2f;
+//     outline: 0;  
+// }
+ 
+// .form-wrapper input[type="submit"] :before { /* left arrow */
+//     content: '';
+//     position: absolute;
+//     border-width: 8px 8px 8px 0;
+//     border-style: solid solid solid none;
+//     border-color: transparent #d83c3c transparent;
+//     top: 12px;
+//     left: -6px;
+// }
+ 
+// .form-wrapper input[type="submit"] :hover:before{
+//     border-right-color: #e54040;
+// }
+ 
+// .form-wrapper input[type="submit"] :focus:before,
+// .form-wrapper input[type="submit"] :active:before{
+//         border-right-color: #c42f2f;
+// }     
+ 
+// .form-wrapper input[type="submit"] ::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+//     border: 0;
+//     padding: 0;
+// }   

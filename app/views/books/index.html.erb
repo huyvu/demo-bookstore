@@ -2,26 +2,38 @@
 
 <table class="list_table">
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Cat</th>
     <th></th>
+    <th>Title</th>
+    <th></th>
+    <% if session[:user_id] %>
+    <th>Category</th>
+    <% end %>
     <th></th>
     <th></th>
   </tr>
 
 <% @books.each do |book| %>
   <tr>
-    <td><%= image_tag("#{book.img_url}", :alt => "book image", :size => "100x137") %></td>
-    <td><%= book.title %></td>
+    <td><%= image_tag("#{book.img_url}", :alt => "book image", :size => "70x107") %></td>
+    <td><%= link_to "#{book.title}", book %></td>
+    
+    <% if session[:user_id] %>
     <td><%= Cat.find(book.cat_id).name %></td>
     <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
+  <div class="digg_pagination">
+    <p><%= will_paginate @books %></p>
+  </div>
 
+<br />
+<% if session[:user_id] %>
 <%= link_to 'New Book', new_book_path %>
+<% end %>
+

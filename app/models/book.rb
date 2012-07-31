@@ -6,12 +6,20 @@ class Book < ActiveRecord::Base
 	validates :title, :description, :img_url, :author, presence: true
   	validates :price, numericality: {greater_than_or_equal_to: 1000}
 # 
-  	validates :title, uniqueness: true
+  	#validates :title, uniqueness: true
   	validates :img_url, allow_blank: true, format: {
     with:    %r{\.(gif|jpg|png)$}i,
     message: 'must be a URL for GIF, JPG or PNG image.'
   	}
   	validates :title, length: {minimum: 10}
+
+    def self.search(search)
+      if search
+        find(:all, :conditions => ['title LIKE ?',"%#{search}%"])
+      else
+        find(:all)
+      end
+    end
 
 	private
 

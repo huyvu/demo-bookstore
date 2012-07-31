@@ -1,14 +1,19 @@
+require 'will_paginate/array'
+
 class BooksController < ApplicationController
-  skip_before_filter :authorize, :only => :show
+  skip_before_filter :authorize, :only => [:show, :index]
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.search(params[:search]).paginate :page =>params[:page], :order =>'created_at desc', :per_page => 4
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @books }
-    end
+    # @books = Book.paginate :page =>params[:page], :order =>'created_at desc', :per_page => 4
+    # @books = Book.all
+
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.json { render json: @books }
+    # end
   end
 
   # GET /books/1
@@ -68,7 +73,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to books_path, notice: 'Book was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
